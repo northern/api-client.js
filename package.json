@@ -21,6 +21,12 @@
     "url": "https://github.com/northern/api-client.js/issues"
   },
   "homepage": "https://github.com/northern/api-client.js#readme",
+  "scripts": {
+    "prepublish": "babel src --out-dir lib"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  },
   "dependencies": {
     "@northern/http.js": "*"
   },
