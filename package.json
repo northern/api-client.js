@@ -1,6 +1,6 @@
 {
   "name": "@northern/api-client.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An easy to use JavaScript API client.",
   "main": "lib/index.js",
   "scripts": {
