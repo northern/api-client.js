@@ -1,0 +1,23 @@
+{
+  "name": "@northern/api-client.js",
+  "version": "0.0.1",
+  "description": "An easy to use JavaScript API client.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northern/api-client.js.git"
+  },
+  "keywords": ["api", "client", "library"],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/northern/api-client.js/issues"
+  },
+  "homepage": "https://github.com/northern/api-client.js#readme",
+  "dependencies": {
+    "@northern/http.js": "^0.0.1"
+  }
+}
