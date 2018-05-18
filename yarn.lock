@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@northern/http.js@*":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@northern/http.js/-/http.js-0.0.2.tgz#be916183094d758e24474a139230e7dd371c809b"
+"@northern/http@*":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@northern/http/-/http-0.0.4.tgz#edf76f52f5d544f3ea6c0f2576c9df803c2231ef"
 
 abbrev@1:
   version "1.1.1"

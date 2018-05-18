@@ -28,7 +28,7 @@
     "presets": ["es2015"]
   },
   "dependencies": {
-    "@northern/http.js": "*"
+    "@northern/http": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
