@@ -1,5 +1,5 @@
 
-import Http from '@northern/http.js'
+import Http from '@northern/http'
 
 export default class Api {
   constructor(baseUrl, session = null) {
