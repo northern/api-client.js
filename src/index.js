@@ -2,55 +2,62 @@
 import Http from '@northern/http'
 
 export default class Api {
-  constructor(baseUrl, session = null) {
+  constructor(baseUrl, headers) {
+    if (!baseUrl) {
+      throw new Error('Missing baseUrl');
+    }
+
     this.baseUrl = baseUrl;
-    this.session = session;
+
+    const defaultHeaders = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    };
+
+    this.headers = headers || defaultHeaders;
   }
 
-  set session(session) {
-    this._session = session;
+  addHeader(name, value) {
+    this.headers[name] = value;
   }
 
-  get(path) {
+  removeHeader(name) {
+    delete this.headers[name];
+  }
+
+  getHeaders() {
+    return this.headers;
+  }
+
+  hasHeader(name) {
+    return this.headers[name] !== undefined;
+  }
+
+  get(path, additionalHeaders) {
     return this._call(Http.GET, path);
   }
 
-  put(path, data) {
+  put(path, data, additionalHeaders) {
     return this._call(Http.PUT, path, data);
   }
 
-  post(path, data) {
+  post(path, data, additionalHeaders) {
     return this._call(Http.POST, path, data);
   }
 
-  delete(path, data) {
+  delete(path, data, additionalHeaders) {
     return this._call(Http.DELETE, path, data);
   }
 
-  _call(method, path, data, headers) {
-    if (!headers) {
-      headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      };
-    }
-
-    if (this._session) {
-      // TODO: Check if session is expired.
-
-      // If a session was set then get the access token from it and add an Authorization
-      // header to the headers to be sent.
-      const accessToken = this._session.accessToken;
-
-      if (accessToken) {
-        headers['Authorization'] = `bearer ${accessToken}`;
-      }
+  _call(method, path, data, additionalHeaders) {
+    if (additionalHeaders) {
+      this.headers = Object.assign({}, this.headers, additionalHeaders);
     }
 
     // Prepare the request object.
     const request = {
       method: method,
-      headers: headers,
+      headers: this.headers,
     };
 
     // If data was provided then add it to the request body.
